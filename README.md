@@ -596,8 +596,8 @@ hystrix:
 - 동시사용자 100명
 - 60초 동안 실시
 
-```
-$ siege -c100 -t60S -r10 --content-type "application/json" 'http://localhost:8082/reservation POST {"productId": "2",, "reservationStatus" : "01" }'
+``` 
+$ siege -c100 -t60S -r10 --content-type "application/json" 'http://reservation:8080/reservation POST {"productId": "2",, "reservationStatus" : "01" }'
 
 Windows 안에서 작동하는 Ubuntu에서 siege 실행시 "[error] unable to set close control sock.c:141: Invalid argument" 이 발생하여 중간 과정은 알 수 없음.
 
@@ -630,8 +630,8 @@ Shortest transaction:           0.02
 kubectl autoscale deploy product --min=1 --max=10 --cpu-percent=15
 ```
 - CB 에서 했던 방식대로 워크로드를 2분 동안 걸어준다.
-```
-$ siege -c100 -t60S -r10 --content-type "application/json" 'http://localhost:8082/reservation POST {"productId": "2",, "reservationStatus" : "01" }'
+``` 
+$ siege -c100 -t60S -r10 --content-type "application/json" 'http://reservation:8082/reservation POST {"productId": "2", "reservationStatus" : "01" }'
 ```
 - 오토스케일이 어떻게 되고 있는지 모니터링을 걸어둔다:
 ```
